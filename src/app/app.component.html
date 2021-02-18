@@ -1,0 +1,27 @@
+  <div class="responsive-nav" (window:resize)="resize($event)">
+    <i class="fa fa-bars menu-toggle" *ngIf="isMinimized"></i>
+    <div id="menu" class="menu" *ngIf="isMinimized">
+      <i class="fa fa-times" id="menu-close"></i>
+      <div class="container">
+        <div class="image">
+          <a href="#"><img src="assets/images/van-gogh.jpg" alt="" /></a>
+        </div>
+        <div class="author-content">
+          <h4>JPMC Artwork</h4>
+          <span>Where art turns into reality</span>
+        </div>
+        <nav class="main-nav" role="navigation">
+          <ul class="main-menu">
+            <li><a routerLink="/home">Home</a></li>
+            <li><a href="/view">View Artwork</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/contactUs">About Us</a></li>
+          </ul>
+        </nav>
+        <div class="copyright-text">
+          <p>Copyright 2021 JP Morgan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<router-outlet></router-outlet>
