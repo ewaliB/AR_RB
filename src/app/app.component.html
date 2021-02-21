@@ -1,7 +1,7 @@
   <div class="responsive-nav" (window:resize)="resize($event)">
-    <i class="fa fa-bars menu-toggle" *ngIf="isMinimized"></i>
-    <div id="menu" class="menu" *ngIf="isMinimized">
-      <i class="fa fa-times" id="menu-close"></i>
+    <i class="fa fa-bars menu-toggle" *ngIf="isMinimized" (click)="minMenuOpen(true)"></i>
+    <div [ngClass]="{'menu': true, 'open': menuOpen}" >
+      <i class="fa fa-times"  *ngIf="menuOpen" (click)="minMenuOpen(false)" style="cursor:pointer;"></i>
       <div class="container">
         <div class="image">
           <a href="#"><img src="assets/images/van-gogh.jpg" alt="" /></a>
