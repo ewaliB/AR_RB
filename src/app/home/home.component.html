@@ -3,8 +3,26 @@
         <div class="section-heading" style="padding-left: 10px !important;">
 
             <div class="row">
-                    <input type="search" title="Search Artwork" placeholder="Type to search artwork"
+              <div class="col-md-2">
+                Search By:
+              </div>
+              <div class="col-md-3">
+                <select class="form-control" name="searchType" [(ngModel)]="searchRequest.type">
+                  <option value="">Please select Type</option>
+                  <option *ngFor="let item of type_values" [selected]="item.value === searchRequest.type.value" [value]="item.value">
+                    {{item.label}}
+                  </option>
+              </select>
+              </div>
+              <div class="col-md-5">
+                    <input type="text" title="Search Artwork" name="searchVal" placeholder="Type to search artwork" [(ngModel)]="searchRequest.value"
                         class="form-control">
+              </div>
+              <div class="col-md-1">
+                <button class="button" (click)="search()" type="button">
+                  Search
+                </button>
+              </div>
             </div>
             <div class="row">
                 <div class="line-dec"></div>
@@ -16,12 +34,12 @@
             <div *ngIf="i%2==0">
               <div class="isotope-item">
                 <figure class="snip1321">
-                  <img src="{{item.imageLoc}}" alt="{{item.title}}" />
+                  <img src="{{item.imageLoc}}" alt="{{item.artName}}" />
                   <figcaption>
-                    <a href="{{item.imageLoc}}" data-lightbox="image-1" data-title="{{item.desc}}"><i
+                    <a href="{{item.imageLoc}}" data-lightbox="image-1" data-title="{{item.description}}"><i
                       class="fa fa-search"></i></a>
-                    <h4>{{item.title}}</h4>
-                    <span>{{item.desc}}</span>
+                    <h4>{{item.artName}}</h4>
+                    <span>{{item.description}}</span>
                   </figcaption>
                 </figure>
               </div>
@@ -33,12 +51,12 @@
             <div *ngIf="i%2==1">
               <div class="isotope-item">
                 <figure class="snip1321">
-                  <img src="{{item.imageLoc}}" alt="{{item.title}}" />
+                  <img src="{{item.imageLoc}}" alt="{{item.artName}}" />
                   <figcaption>
-                    <a href="{{item.imageLoc}}" data-lightbox="image-1" data-title="{{item.desc}}"><i
+                    <a href="{{item.imageLoc}}" data-lightbox="image-1" data-title="{{item.description}}"><i
                       class="fa fa-search"></i></a>
-                    <h4>{{item.title}}</h4>
-                    <span>{{item.desc}}</span>
+                    <h4>{{item.artName}}</h4>
+                    <span>{{item.description}}</span>
                   </figcaption>
                 </figure>
               </div>

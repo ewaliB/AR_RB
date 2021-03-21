@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-add',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: CrudService) { }
 
   ngOnInit(): void {
     for(let i=1; i<=31;i++)
@@ -25,8 +26,13 @@ export class AddComponent implements OnInit {
       this.currentlySelectedArtwork.cultureList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.culture,',');
       this.currentlySelectedArtwork.categorylist = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.category,',');
       console.log(JSON.stringify(this.currentlySelectedArtwork));
+
+      this.service.addArtWorkObject(this.currentlySelectedArtwork).subscribe(response => {
+        let res= response;
+        alert(JSON.stringify(res));
+      });
       alert('Artwork submitted successfully!');
-      this.reset();
+      //this.reset();
   }
 
   reset():void{
