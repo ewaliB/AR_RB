@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view',
@@ -7,11 +8,21 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class ViewComponent implements OnInit {
 
-  constructor(private service: CrudService) { }
+  constructor(private service: CrudService,private activatedRoute:ActivatedRoute) { }
 
+  sub;
   ngOnInit(): void {
-      this.search();//ewali remove this
+       this.sub = this.activatedRoute.paramMap.subscribe(params => {
+                this.editable = (params.get('editable')=='Y');
+       });
   }
+
+  ngOnDestroy() {
+       this.sub.unsubscribe();
+  }
+
+  editable:boolean=false;
+
   artworks:Array<any> = [];
 
   type_values:any[] = [{label:'Artist Name', value:'artistName'},
@@ -29,12 +40,12 @@ export class ViewComponent implements OnInit {
   searchRequest:any = {type: this.type_values[0].value, value:''};
 
   search():void{
-    /* if(this.searchRequest.value==''){
+    if(this.searchRequest.value==''){
       alert('Please enter some search value');
       return;
-    } */
+    }
     this.service.searchArtWork(this.searchRequest).subscribe(response => {
-            let res= response;
+        let res= response;
         this.service.getLatestArtWorks().subscribe(response => {
                    this.artworks = response;
         });

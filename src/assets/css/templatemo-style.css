@@ -25,7 +25,8 @@ body {
 }
 
 .inside {
-  background: rgba(26, 62, 105, .8); /* Black background with 0.5 opacity*/
+  /*background: rgba(64, 25, 29, .8);*/
+  background: rgba(2 , 38, 81, .9);
 }
 
 
@@ -133,7 +134,7 @@ html {
 .main-nav li:hover a,
 .main-nav li.active a {
     background: #fff;
-    color: #1a3e69;
+    color: #a43f49;
 }
 
 /* Sidebar Menu */
@@ -148,8 +149,8 @@ html {
     border-radius: 50%;
     text-align: center;
     background-image:url(https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/who-we-are/art-collection/art-history-banner-colors.jpg);
-    background-position: 15% 60%;
     background-repeat:no-repeat;
+    background-size: cover;
 }
 
 .menu .author-content {
@@ -188,7 +189,7 @@ html {
 
 .menu .social-network ul li a:hover {
     background-color: #fff;
-    color: #1a3e69;
+    color: #a43f49;
 }
 
 .menu .copyright-text {
@@ -233,7 +234,7 @@ html {
     left: 10%;
   -webkit-transition: -webkit-transform 233ms cubic-bezier(0, 0, 0.21, 1);
   -webkit-overflow-scrolling: touch;
-  background-color: #1a3e69;
+  background-color: #a43f49;
   box-sizing: border-box;
   height: 100vh;
   max-height: 100vh !important;
@@ -247,7 +248,7 @@ html {
   top: calc(0px);
   width: 20%;
   will-change: transform;
-  z-index: 9999 !important;
+  z-index: 999 !important;
 }
 
 .menu-toggle {
@@ -265,7 +266,7 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    color: #1a3e69;
+    color: #a43f49;
     background-color: #fff;
     width: 60px;
     height: 60px;
@@ -281,7 +282,7 @@ html {
 #menu-close {
     cursor: pointer;
     text-align: right;
-    color: #1a3e69;
+    color: #a43f49;
     background-color: #fff;
     width: 100%;
     height: 60px;
@@ -336,7 +337,7 @@ html {
     display: inline-block;
     padding: 12px 20px;
     background-color: #fff;
-    color: #1a3e69;
+    color: #a43f49;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -346,7 +347,7 @@ html {
 }
 
 .white-button a:hover {
-    background-color: #1a3e69;
+    background-color: #a43f49;
     color: #fff;
 }
 
@@ -354,7 +355,7 @@ button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #fff;
-    color: #1a3e69;
+    color: #a43f49;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -368,7 +369,7 @@ button {
 
 button:hover {
     outline: none;
-    background-color: #1a3e69;
+    background-color: #a43f49;
     color: #fff;
 }
 
@@ -672,4 +673,12 @@ section.contact-me {
 
 .icon-img{
   background-image:url(https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/who-we-are/art-collection/art-history-banner-colors.jpg);
+}
+div.ngxImageZoomContainer{
+  width:100% !important;
+  height:calc(100%-200px) !important;
+}
+
+.caption{
+  white-space: pre-line;
 }

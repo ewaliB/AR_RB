@@ -47,6 +47,9 @@
                 <audio preload="auto" controls *ngIf="item.soundLoc">
                   <source [src]="item.soundLoc">
                 </audio>
+                <div class="white-button"  *ngIf="editable">
+                  <a [routerLink]="['/modify',item.id]">Edit</a>
+                </div>
               </div>
             </div>
           </div>
@@ -63,6 +66,9 @@
                 <audio preload="auto" controls *ngIf="item.soundLoc">
                   <source [src]="item.soundLoc">
                 </audio>
+                <div class="white-button" *ngIf="editable">
+                  <a [routerLink]="['/modify',item.id]">Edit</a>
+                </div>
               </div>
             </div>
             <div class="col-md-6">

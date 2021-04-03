@@ -1,23 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html'
+  selector: 'app-modify',
+  templateUrl: './add-modify.component.html'
 })
-export class AddComponent implements OnInit {
+export class ModifyComponent implements OnInit {
 
-  constructor(private service: CrudService) { }
+  constructor(private service: CrudService,private activatedRoute:ActivatedRoute,private router:Router) { }
 
+  sub;
   ngOnInit(): void {
     for(let i=1; i<=31;i++)
       this.date_values.push(""+i);
-    this.reset();
+      this.sub = this.activatedRoute.paramMap.subscribe(params => {
+          this.id = params.get('id');
+          this.reset();
+      });
   }
 
+  ngOnDestroy() {
+       this.sub.unsubscribe();
+  }
+
+  private id:String;
+  isModify:boolean=true;
   date_values:string[] = [];
   month_values:string[] = ['January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   displayImgValues:string[] = ['Yes','No'];
+
   submitArtwork():void{
       this.currentlySelectedArtwork.artCatList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.artCat,',');
       this.currentlySelectedArtwork.colorList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.color,',');
@@ -28,34 +40,15 @@ export class AddComponent implements OnInit {
 
       this.service.addArtWorkObject(this.currentlySelectedArtwork).subscribe(response => {
         let res= response;
+        alert('Artwork saved successfully!');
+        this.reset();
       });
-      alert('Artwork submitted successfully!');
-      this.reset();
   }
 
   reset():void{
-    this.currentlySelectedArtwork = {
-      id:'',
-      artName:'',
-      artCat:'', artCatList:[],
-      artistName:'',
-      artistInfo:'',
-      creationDate:'',
-      creationMonth:'',
-      creationYear:'',
-      acquistionDate:'',
-      acquistionMonth:'',
-      acquistionYear:'',
-      color:'', colorList:[],
-      medium:'', mediumList:[],
-      culture:'',cultureList:[],
-      brg:'',
-      category:'',categorylist:[],
-      displayImage:this.displayImgValues[1],
-      imgLoc:'',
-      soundLoc:'',
-      description:''
-     }
+       this.service.getArtworkById(this.id).subscribe(response => {
+           this.currentlySelectedArtwork = response;
+       });
   }
 
   currentlySelectedArtwork:any = {};
@@ -74,5 +67,11 @@ export class AddComponent implements OnInit {
           output.push(item);
        }
       return output;
+  }
+
+  deleteArtwork():void{
+     this.service.deleteArtworkById(this.id).subscribe(response => {
+          this.router.navigate(['view/Y']);
+    });
   }
 }

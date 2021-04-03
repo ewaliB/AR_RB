@@ -23,6 +23,14 @@ export class CrudService {
       return this.postRequest(Constants.addArtWorkObjURL,artworkObj);
   }
 
+  getArtworkById(id:any):Observable<any> {
+      return this.postRequest(Constants.getArtworkByIdURL,id);
+  }
+
+  deleteArtworkById(id:any):Observable<any> {
+      return this.postRequest(Constants.deleteArtworkByIdURL,id);
+ }
+
   private postRequest(target:string, reqObject:any):Observable<any>{
    return this.http.post(target , reqObject)
       .pipe(
