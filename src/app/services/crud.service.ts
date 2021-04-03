@@ -14,6 +14,11 @@ export class CrudService {
       return this.postRequest(Constants.searchArtWorkURL,requestObj);
   }
 
+  getLatestArtWorks():Observable<any> {
+      //return this.postRequest(Constants.latestArtworksURL,{});
+      return this.http.get( "assets/data/artworkData.json");
+  }
+
   addArtWorkObject(artworkObj:any):Observable<any> {
       return this.postRequest(Constants.addArtWorkObjURL,artworkObj);
   }

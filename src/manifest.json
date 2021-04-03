@@ -1,7 +1,0 @@
-{
-    "name": "Angular Progressive Web App",
-   "short_name": "RB_Proj",
-   "start_url": "./",
-   "display": "standalone",
-   "description": "A PWA that is built with Angular"
-}

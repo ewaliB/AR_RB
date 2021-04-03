@@ -5,27 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HomeComponent } from './home/home.component';
-import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add/add.component';
-import { ContactComponent } from './contact/contact.component';
-import { FileUploadComponent } from './component/file-upload/file-upload.component';
+import { AboutComponent } from './about/about.component';
+import { AudioPlayComponent } from './component/audio-play/audio-play.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { LightboxComponent } from './component/lightbox/lightbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    EditComponent,
     ViewComponent,
     AddComponent,
-    ContactComponent,
-    FileUploadComponent
+    AboutComponent,
+    AudioPlayComponent,
+    LightboxComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule,
+    BrowserModule,NgImageSliderModule,
+    AppRoutingModule,HttpClientModule,FormsModule,NgxImageZoomModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [HttpClientModule],

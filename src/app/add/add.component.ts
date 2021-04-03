@@ -3,8 +3,7 @@ import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  templateUrl: './add.component.html'
 })
 export class AddComponent implements OnInit {
 
@@ -29,10 +28,9 @@ export class AddComponent implements OnInit {
 
       this.service.addArtWorkObject(this.currentlySelectedArtwork).subscribe(response => {
         let res= response;
-        alert(JSON.stringify(res));
       });
       alert('Artwork submitted successfully!');
-      //this.reset();
+      this.reset();
   }
 
   reset():void{
