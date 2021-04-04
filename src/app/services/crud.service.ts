@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse, HttpRequest,HttpEvent } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators'
 import { Constants } from 'src/app/Constants';
 
 @Injectable({
@@ -34,6 +34,23 @@ export class CrudService {
     return this.deleteRequest(url);
  }
 
+  downloadExcel():Observable<any> {
+    const url = `${Constants.artworksURL}`;
+    return this.getRequest(url);
+  }
+
+  uploadExcel(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${Constants.artworksURL}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
 
 /**Private methods **/
   private postRequest(target:string, reqObject:any):Observable<any>{

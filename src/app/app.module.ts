@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { ViewComponent } from './view/view.component';
 import { AddComponent } from './add-modify/add.component';
 import { ModifyComponent } from './add-modify/modify.component';
+import { BulkComponent } from './bulk/bulk.component';
 import { AboutComponent } from './about/about.component';
 import { AudioPlayComponent } from './component/audio-play/audio-play.component';
 import { HttpClientModule } from '@angular/common/http';

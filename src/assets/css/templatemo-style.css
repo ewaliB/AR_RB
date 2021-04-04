@@ -335,20 +335,17 @@ html {
 
 .white-button a {
     display: inline-block;
-    padding: 12px 20px;
-    background-color: #fff;
-    color: #a43f49;
-    font-size: 13px;
+    padding: 10px 10px;
+    background-color: #a43f49;
+    color: #fff;
     font-weight: 800;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
     transition: all 0.5s;
     border-radius:4px;
 }
 
 .white-button a:hover {
-    background-color: #a43f49;
-    color: #fff;
+    background-color: #fff;
+    color: #a43f49;
 }
 
 button {
@@ -681,4 +678,9 @@ div.ngxImageZoomContainer{
 
 .caption{
   white-space: pre-line;
+}
+
+.notif{
+  color: #a43f49;
+  background-color:#fff;
 }

@@ -1,7 +1,11 @@
 <div class="section">
     <div class="container">
         <div class="section-heading" style="padding-left: 10px !important;padding-bottom: 0px !important;">
-
+          <div style="text-align:right;padding-bottom:20px;">
+            <div class="white-button"  *ngIf="editable" title="Please exercise caution. For emergency only." >
+              <a [routerLink]="['/bulk']">BULK UPLOAD</a>
+            </div>
+          </div>
             <div class="row">
               <div class="col-md-2">
                 Search By:
