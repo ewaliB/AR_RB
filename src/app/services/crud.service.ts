@@ -11,26 +11,31 @@ export class CrudService {
   constructor(private http: HttpClient) { }
 
   searchArtWork(requestObj:any):Observable<any> {
-      return this.postRequest(Constants.searchArtWorkURL,requestObj);
+     const url = `${Constants.searchArtWorkURL}?type=${requestObj.type}&name=`+encodeURIComponent(requestObj.value);
+     return this.getRequest(url);
   }
 
   getLatestArtWorks():Observable<any> {
-      //return this.postRequest(Constants.latestArtworksURL,{});
-      return this.http.get( "assets/data/artworkData.json");
+      const url = `${Constants.artworksURL}`;
+      return this.getRequest(url);
   }
 
   addArtWorkObject(artworkObj:any):Observable<any> {
-      return this.postRequest(Constants.addArtWorkObjURL,artworkObj);
+      return this.postRequest(Constants.artworksURL,artworkObj);
   }
 
   getArtworkById(id:any):Observable<any> {
-      return this.postRequest(Constants.getArtworkByIdURL,id);
+    const url = `${Constants.artworksURL}/${id}`;
+    return this.getRequest(url);
   }
 
   deleteArtworkById(id:any):Observable<any> {
-      return this.postRequest(Constants.deleteArtworkByIdURL,id);
+    const url = `${Constants.artworksURL}/${id}`;
+    return this.deleteRequest(url);
  }
 
+
+/**Private methods **/
   private postRequest(target:string, reqObject:any):Observable<any>{
    return this.http.post(target , reqObject)
       .pipe(
@@ -38,7 +43,22 @@ export class CrudService {
       );
   }
 
+ private getRequest(completeURL):Observable<any>{
+   return this.http.get(completeURL)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+ private deleteRequest(completeURL):Observable<any>{
+   return this.http.delete(completeURL)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
+    alert("Some error has occurred, please contact support.");
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);

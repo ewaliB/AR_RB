@@ -11,6 +11,7 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getLatestArtWorks().subscribe(response => {
+           this.artWorkImages.push({});
             for(let item of response) {
             let title = item.artistName + ' (' + item.artistInfo +')\n' + item.artName +', '+ item.creationYear;
              let artwork = {image:item.imgLoc,path:item.imgLoc,thumbImage:item.imgLoc,title:title};

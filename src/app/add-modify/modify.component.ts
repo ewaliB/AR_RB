@@ -47,7 +47,7 @@ export class ModifyComponent implements OnInit {
 
   reset():void{
        this.service.getArtworkById(this.id).subscribe(response => {
-           this.currentlySelectedArtwork = response;
+          this.currentlySelectedArtwork = response;
        });
   }
 

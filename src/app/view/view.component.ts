@@ -47,7 +47,7 @@ export class ViewComponent implements OnInit {
     this.service.searchArtWork(this.searchRequest).subscribe(response => {
         let res= response;
         this.service.getLatestArtWorks().subscribe(response => {
-                   this.artworks = response;
+            this.artworks = response;
         });
   });
 
