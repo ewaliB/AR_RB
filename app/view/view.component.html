@@ -1,0 +1,87 @@
+<div class="section">
+    <div class="container">
+        <div class="section-heading" style="padding-left: 10px !important;padding-bottom: 0px !important;">
+          <div style="text-align:right;padding-bottom:20px;">
+            <div class="white-button"  *ngIf="editable" title="Please exercise caution. For emergency only." >
+              <a [routerLink]="['/bulk']">BULK UPLOAD</a>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col-md-2">
+                Search By:
+              </div>
+              <div class="col-md-3">
+                <select class="form-control" name="searchType" [(ngModel)]="searchRequest.type">
+                  <option value="">Please select Type</option>
+                  <option *ngFor="let item of type_values" [selected]="item.value === searchRequest.type.value" [value]="item.value">
+                    {{item.label}}
+                  </option>
+              </select>
+              </div>
+              <div class="col-md-5">
+                    <input type="text" title="Search Artwork" name="searchVal" placeholder="Type to search artwork" [(ngModel)]="searchRequest.field"
+                        class="form-control">
+              </div>
+              <div class="col-md-1">
+                <button class="button" (click)="search()" type="button">
+                  Search
+                </button>
+              </div>
+            </div>
+            <div class="row">
+                <div class="line-dec"></div>
+            </div>
+        </div>
+
+      <ng-container *ngFor="let item of artworks;let i = index">
+        <div class="left-image-post" *ngIf="i%2==0"  style="padding-left:0px !important">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="left-image">
+                <app-lightbox [image]="item"></app-lightbox>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="right-text">
+                <p style="margin-bottom:0px;"><b>{{item.artistName}}</b> ({{item.artistInfo}})</p>
+                <p style="padding-top:0px; margin:5px;"><i>{{item.artName}}</i>, {{item.creationYear}}</p>
+                <p>
+                  <span  style="white-space: pre-line">{{item.description}}</span>
+                </p>
+                <audio preload="auto" controls *ngIf="item.soundLoc">
+                  <source [src]="item.soundLoc">
+                </audio>
+                <div class="white-button"  *ngIf="editable">
+                  <a [routerLink]="['/modify',item.id]">Edit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-image-post" *ngIf="i%2==1">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="left-text">
+                <p style="margin-bottom:0px;"><b>{{item.artistName}}</b> ({{item.artistInfo}})</p>
+                <p style="padding-top:0px; margin:5px;"><i>{{item.artName}}</i>, {{item.creationYear}}</p>
+                <p>
+                  <span  style="white-space: pre-line">{{item.description}}</span>
+                </p>
+                <audio preload="auto" controls *ngIf="item.soundLoc">
+                  <source [src]="item.soundLoc">
+                </audio>
+                <div class="white-button" *ngIf="editable">
+                  <a [routerLink]="['/modify',item.id]">Edit</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="right-image">
+                <app-lightbox [image]="item"></app-lightbox>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+</div>
