@@ -19,7 +19,7 @@
               </select>
               </div>
               <div class="col-md-5">
-                    <input type="text" title="Search Artwork" name="searchVal" placeholder="Type to search artwork" [(ngModel)]="searchRequest.value"
+                    <input type="text" title="Search Artwork" name="searchVal" placeholder="Type to search artwork" [(ngModel)]="searchRequest.field"
                         class="form-control">
               </div>
               <div class="col-md-1">
@@ -44,7 +44,7 @@
             <div class="col-md-6">
               <div class="right-text">
                 <p style="margin-bottom:0px;"><b>{{item.artistName}}</b> ({{item.artistInfo}})</p>
-                <p style="padding-top:0px; margin:5px;"><i>{{item.artName}}</i>, {{item.creationYear}}</p>
+                <p style="padding-top:0px; margin:5px;"><i>{{item.artTitle}}</i>, {{item.creationYear}}</p>
                 <p>
                   <span  style="white-space: pre-line">{{item.description}}</span>
                 </p>
@@ -63,7 +63,7 @@
             <div class="col-md-6">
               <div class="left-text">
                 <p style="margin-bottom:0px;"><b>{{item.artistName}}</b> ({{item.artistInfo}})</p>
-                <p style="padding-top:0px; margin:5px;"><i>{{item.artName}}</i>, {{item.creationYear}}</p>
+                <p style="padding-top:0px; margin:5px;"><i>{{item.artTitle}}</i>, {{item.creationYear}}</p>
                 <p>
                   <span  style="white-space: pre-line">{{item.description}}</span>
                 </p>

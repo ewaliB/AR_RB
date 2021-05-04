@@ -144,13 +144,13 @@ html {
 }
 
 .menu .image img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+    width: 250px;
+    height: 93px;
+    /*border-radius: 50%;*/
     text-align: center;
-    background-image:url(https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/who-we-are/art-collection/art-history-banner-colors.jpg);
+    background-image:url(../images/logo.jpg);
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: contain;
 }
 
 .menu .author-content {
@@ -669,7 +669,7 @@ section.contact-me {
 }
 
 .icon-img{
-  background-image:url(https://www.jpmorganchase.com/content/dam/jpmc/jpmorgan-chase-and-co/who-we-are/art-collection/art-history-banner-colors.jpg);
+  background-image:url('../images/logo.jpg');
 }
 div.ngxImageZoomContainer{
   width:100% !important;
@@ -678,9 +678,12 @@ div.ngxImageZoomContainer{
 
 .caption{
   white-space: pre-line;
+  display:inline;
 }
+
 
 .notif{
   color: #a43f49;
   background-color:#fff;
 }
+

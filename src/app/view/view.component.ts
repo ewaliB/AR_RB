@@ -26,21 +26,21 @@ export class ViewComponent implements OnInit {
   artworks:Array<any> = [];
 
   type_values:any[] = [{label:'Artist Name', value:'artistName'},
-       {label:'Art Name', value:'artName'},
-       {label:'Art category', value:'artCat'},
+       {label:'Title of Artwork', value:'artTitle'},
+       {label:'Location of Artwork', value:'artLoc'},
        {label:'Creation Year', value:'creationYear'},
        {label:'Acquisition Year', value:'acquistionYear'},
        {label:'Color', value:'color'},
        {label:'Culture', value:'culture'},
        {label:'Category', value:'category'},
        {label:'Medium', value:'medium'},
-       {label:'BRG', value:'brg'}
+       {label:'Business Resource Group Affiliation', value:'brg'}
     ];
 
-  searchRequest:any = {type: this.type_values[0].value, value:''};
+  searchRequest:any = {type: this.type_values[0].value, field:'',filterImage:!this.editable };
 
   search():void{
-    if(this.searchRequest.value==''){
+    if(this.searchRequest.field==''){
       alert('Please enter some search value');
       return;
     }

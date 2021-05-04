@@ -12,8 +12,6 @@ export class ModifyComponent implements OnInit {
 
   sub;
   ngOnInit(): void {
-    for(let i=1; i<=31;i++)
-      this.date_values.push(""+i);
       this.sub = this.activatedRoute.paramMap.subscribe(params => {
           this.id = params.get('id');
           this.reset();
@@ -26,12 +24,9 @@ export class ModifyComponent implements OnInit {
 
   private id:String;
   isModify:boolean=true;
-  date_values:string[] = [];
-  month_values:string[] = ['January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   displayImgValues:string[] = ['Yes','No'];
 
   submitArtwork():void{
-      this.currentlySelectedArtwork.artCatList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.artCat,',');
       this.currentlySelectedArtwork.colorList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.color,',');
       this.currentlySelectedArtwork.mediumList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.medium,',');
       this.currentlySelectedArtwork.cultureList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.culture,',');

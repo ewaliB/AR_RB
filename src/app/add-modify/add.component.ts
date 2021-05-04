@@ -19,7 +19,7 @@ export class AddComponent implements OnInit {
   month_values:string[] = ['January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   displayImgValues:string[] = ['Yes','No'];
   submitArtwork():void{
-      this.currentlySelectedArtwork.artCatList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.artCat,',');
+      this.currentlySelectedArtwork.artCatList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.artLoc,',');
       this.currentlySelectedArtwork.colorList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.color,',');
       this.currentlySelectedArtwork.mediumList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.medium,',');
       this.currentlySelectedArtwork.cultureList = this.convertDelimiterSepStringtoArray(this.currentlySelectedArtwork.culture,',');
@@ -36,8 +36,8 @@ export class AddComponent implements OnInit {
   reset():void{
     this.currentlySelectedArtwork = {
       id:'',
-      artName:'',
-      artCat:'', artCatList:[],
+      artTitle:'',
+      artLoc:'', artCatList:[],
       artistName:'',
       artistInfo:'',
       creationDate:'',
